@@ -8,7 +8,7 @@
     "You can use the custom server options to sign into other Matrix servers by specifying a different Home server URL.<br/>This allows you to use Riot with an existing Matrix account on a different home server.<br/><br/>You can also set a custom identity server but you won't be able to invite users by email address, or be invited by email address yourself.": "Možete koristiti prilagođene opcije poslužitelja za prijavu na ostale Matrix poslužitelje, navodeći drugačiji URL za Kućni poslužitelj.<br/>Ovo vam omogućuje da koristite Riot s postojećim Matrix računom na različitom kućnom poslužitelju.<br/><br/>Također možete postaviti prilagođeni poslužitelj identiteta, ali u tom slučaju nećete moći pozivati korisnike preko njihove email adrese, niti sami biti pozvani preko vase email adrese.",
     "Dismiss": "Odbaci",
     "powered by Matrix": "powered by Matrix",
-    "Welcome to Riot.im": "Dobrodošli u Riot.im",
+    "Welcome to Riot.im": "Dobrodošli u Synod.im",
     "Chat with Riot Bot": "Razgovor s Riot Botom",
     "Get started with some tips from Riot Bot!": "Krenite s par savjeta od Riot Bota!",
     "General discussion about Matrix and Riot": "Opća rasprava o Matrixu i Riotu",

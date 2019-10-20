@@ -8,7 +8,7 @@
     "You can use the custom server options to sign into other Matrix servers by specifying a different homeserver URL. This allows you to use Riot with an existing Matrix account on a different homeserver.": "Možnosti strežnika po meri lahko uporabite za prijavo v druge Matrix strežnike, s tem da podate drug URL domačega strežnika. To vam omogoča, da uporabljate Riot z obstoječim Matrix računom na drugem strežniku.",
     "You can also set a custom identity server, but you won't be able to invite users by email address, or be invited by email address yourself.": "Nastavite lahko tudi strežnik za identiteto po meri, vendar ne boste mogli povabiti uporabnikov prek e-pošte, prav tako pa vas ne bodo mogli povabiti drugi.",
     "Dismiss": "Opusti",
-    "Welcome to Riot.im": "Dobrodošli v Riot.im",
+    "Welcome to Riot.im": "Dobrodošli v Synod.im",
     "Decentralised, encrypted chat &amp; collaboration powered by [matrix]": "Decentralizirano šifrirano sporočanje &amp; sodelovanje s pomočjo [matrix]",
     "Sign In": "Prijava",
     "Create Account": "Registracija",

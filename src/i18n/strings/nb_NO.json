@@ -8,7 +8,7 @@
     "You need to be using HTTPS to place a screen-sharing call.": "Du er nødt til å bruke HTTPS for å ha en samtale med skjermdeling.",
     "You can use the custom server options to sign into other Matrix servers by specifying a different Home server URL.<br/>This allows you to use Riot with an existing Matrix account on a different home server.<br/><br/>You can also set a custom identity server but you won't be able to invite users by email address, or be invited by email address yourself.": "De kan benytte brukerdefinerte server-innstillinger for å kunne logge Dem inn på andre Matrix-servere ved å spesifisere en annen hjemmeserver-adresse. <br/> Dette tillater Dem til å bruke Riot med en eksisterende Matrix-konto på en annen hjemmeserver. <br/><br/> De kan i tillegg definere en egen hjemmeserver-identitet, men De kan da ikke invitere andre brukere via email, og De kan heller ikke bli invitert via email selv.",
     "Dismiss": "Avvis",
-    "Welcome to Riot.im": "Velkommen til Riot.im",
+    "Welcome to Riot.im": "Velkommen til Synod.im",
     "Decentralised, encrypted chat &amp; collaboration powered by [matrix]": "Desentralisert, kryptert chat &amp; sammabeid drevet av [matrix]",
     "Search the room directory": "Søk i alle rom",
     "Lots of rooms already exist in Matrix, linked to existing networks (Slack, IRC, Gitter etc) or independent. Check out the directory!": "Allerede finnes det alskens rom i Matrix, sammenkoblet til eksisterende nettverk (Slack, IRC, Gitter osv.) eller selvstendig. Dersom De formoder, kan De kikke på utvalget!",

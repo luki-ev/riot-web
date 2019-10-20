@@ -8,7 +8,7 @@
     "You can use the custom server options to sign into other Matrix servers by specifying a different Home server URL.<br/>This allows you to use Riot with an existing Matrix account on a different home server.<br/><br/>You can also set a custom identity server but you won't be able to invite users by email address, or be invited by email address yourself.": "სხვა Matrix სერვერებზე შესასვლელად შეგიძლიათ გამოიყენოთ პერსონალიზებული სერვერის პარამეტრები განსხვავებული მთავარი სერვერის URL-ის მითითებით <br/>ეს გაძლევთ საშუალებას, გამოიყენოთ Riot-ი არსებულ Matrix ანგარიშით სხვა მთავარ სერვერზე.<br/><br/>თქვენ ასევე შეგიძლიათ დააყენოთ პერსონალიზებული იდენტუროის სერვერი, მაგრამ თქვენ ვერ მოიწვევთ მომხმარებლებს ელფოსტის მისამართით და თავად თქვენ ვერ მოგიწვევენ ელფოსტის მისამართით.",
     "Dismiss": "უარის თქმა",
     "powered by Matrix": "Matrix-ზე დაფუძნებული",
-    "Welcome to Riot.im": "კეთილი იყოს თქვენი მობრძანება Riot.im-ზე",
+    "Welcome to Riot.im": "კეთილი იყოს თქვენი მობრძანება Synod.im-ზე",
     "Decentralised, encrypted chat &amp; collaboration powered by [matrix]": "დეცენტრალიზებული, დაშიფრული ჩატი &amp; კოლაბორაცია, დაფუძნებული [matrix]-ზე",
     "Search the room directory": "მოძებნა ოთახის სიაში",
     "Lots of rooms already exist in Matrix, linked to existing networks (Slack, IRC, Gitter etc) or independent. Check out the directory!": "მრავალი ოთახი უკვე არსებობს Matrix-ში, რომლებიც არიან დაკავშირებული არსებულ ქსელებთან (Slack, IRC, Glitter და ა.შ) ან დამოუკიდებელი. შეამოწმეთ სია!",

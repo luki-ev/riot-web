@@ -8,7 +8,7 @@
     "You can use the custom server options to sign into other Matrix servers by specifying a different Home server URL.<br/>This allows you to use Riot with an existing Matrix account on a different home server.<br/><br/>You can also set a custom identity server but you won't be able to invite users by email address, or be invited by email address yourself.": "Може да използвате опциите за друг сървър, за да влезете в други Matrix сървъри като посочите различен Home сървър.<br/>Това Ви позволява да използвате Riot със съществуващ Matrix профил на различен Home сървър.<br/><br/> Възможно е и да зададете друг сървър за самоличност. В този случай обаче няма да бъде възможно да поканите други потребители по имейл адрес, както и самите Вие няма да можете да бъдете поканени по имейл адрес.",
     "Dismiss": "Затвори",
     "powered by Matrix": "базирано на Matrix",
-    "Welcome to Riot.im": "Добре дошли в Riot.im",
+    "Welcome to Riot.im": "Добре дошли в Synod.im",
     "Decentralised, encrypted chat &amp; collaboration powered by [matrix]": "Децентрализиран, шифрован чат и съвместна работа, базирани на [matrix]",
     "Search the room directory": "Търсене в директорията със стаи",
     "Lots of rooms already exist in Matrix, linked to existing networks (Slack, IRC, Gitter etc) or independent. Check out the directory!": "В Matrix съществуват много стаи, свързани към вече съществуващи мрежи (Slack, IRC, Gitter и т.н.) или независими такива. Разгледайте директорията!",
