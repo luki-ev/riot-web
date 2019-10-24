@@ -8,3 +8,4 @@ deploy:
   file: dist/*.tar.gz
   on:
     tags: true
+  edge: true
