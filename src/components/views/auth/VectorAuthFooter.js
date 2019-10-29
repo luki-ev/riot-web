@@ -44,7 +44,6 @@ module.exports = () => {
     return (
         <div className="mx_AuthFooter">
             {authFooterLinks}
-            <a href="https://luki.org/impressum/" target="_blank" rel="noopener">Impressum</a>
             <a href="https://matrix.org" target="_blank" rel="noopener">{ _t('powered by Matrix') }</a>
         </div>
     );
