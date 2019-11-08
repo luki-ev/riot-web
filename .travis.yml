@@ -2,7 +2,7 @@ language: node_js
 node_js:
       - 10
 env:
-  - RIOT_OG_IMAGE_URL=https://web.synod.im/themes/riot/img/logos/synod-im-logo.png
+  - RIOT_OG_IMAGE_URL=https://web.synod.im/themes/riot/img/logos/synod-im-logo-color.png
 install: yarn install
 script: yarn dist
 deploy:
