@@ -19,7 +19,7 @@ tmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'icontmp'`
 
 for i in 1024 512 310 256 192 180 152 150 144 128 120 114 96 76 72 70 64 60 57 48 36 32 24 16
 do
-    #convert -background none -density 1000 -resize $i -extent $i -gravity center "$1" "$tmpdir/$i.png"
+    convert -background none -density 1000 -resize $i -extent $i -gravity center "$1" "$tmpdir/$i.png"
 
     # Above is the imagemagick command to render an svg to png. Unfortunately, its support for SVGs
     # with CSS isn't very good (with rsvg and even moreso the built in renderer) so we use cairosvg.
@@ -33,19 +33,19 @@ do
     # so we have to 'resize the svg' first (add width and height attributes to the svg element) to make it render at the
     # size we need.
     # XXX: This will break if the svg already has width and height attributes
-    cp "$1" "$tmpdir/tmp.svg"
-    xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n width -v $i "$tmpdir/tmp.svg" > "$tmpdir/tmp2.svg"
-    xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n height -v $i "$tmpdir/tmp2.svg" > "$tmpdir/tmp3.svg"
-    cairosvg -f png -o "$tmpdir/$i.png"  "$tmpdir/tmp3.svg"
-    rm "$tmpdir/tmp.svg" "$tmpdir/tmp2.svg" "$tmpdir/tmp3.svg"
+    #cp "$1" "$tmpdir/tmp.svg"
+    #xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n width -v $i "$tmpdir/tmp.svg" > "$tmpdir/tmp2.svg"
+    #xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n height -v $i "$tmpdir/tmp2.svg" > "$tmpdir/tmp3.svg"
+    #cairosvg -f png -o "$tmpdir/$i.png"  "$tmpdir/tmp3.svg"
+    #rm "$tmpdir/tmp.svg" "$tmpdir/tmp2.svg" "$tmpdir/tmp3.svg"
 done
 
 # one more for the non-square mstile
-cp "$1" "$tmpdir/tmp.svg"
-xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n width -v 310 "$tmpdir/tmp.svg" > "$tmpdir/tmp2.svg"
-xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n height -v 150 "$tmpdir/tmp2.svg" > "$tmpdir/tmp3.svg"
-cairosvg -f png -o "$tmpdir/310x150.png"  "$tmpdir/tmp3.svg"
-rm "$tmpdir/tmp.svg" "$tmpdir/tmp2.svg" "$tmpdir/tmp3.svg"
+#cp "$1" "$tmpdir/tmp.svg"
+#xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n width -v 310 "$tmpdir/tmp.svg" > "$tmpdir/tmp2.svg"
+#xmlstarlet ed -N x="http://www.w3.org/2000/svg" --insert "/x:svg" --type attr -n height -v 150 "$tmpdir/tmp2.svg" > "$tmpdir/tmp3.svg"
+#cairosvg -f png -o "$tmpdir/310x150.png"  "$tmpdir/tmp3.svg"
+#rm "$tmpdir/tmp.svg" "$tmpdir/tmp2.svg" "$tmpdir/tmp3.svg"
 
 mkdir "$tmpdir/Riot.iconset"
 cp "$tmpdir/16.png" "$tmpdir/Riot.iconset/icon_16x16.png"
@@ -100,7 +100,7 @@ cp "$tmpdir/70.png" "res/vector-icons/mstile-70x70.png"
 cp "$tmpdir/144.png" "res/vector-icons/mstile-144x144.png"
 cp "$tmpdir/150.png" "res/vector-icons/mstile-150x150.png"
 cp "$tmpdir/310.png" "res/vector-icons/mstile-310x310.png"
-cp "$tmpdir/310x150.png" "res/vector-icons/mstile-310x150.png"
+#cp "$tmpdir/310x150.png" "res/vector-icons/mstile-310x150.png"
 cp "$tmpdir/180.png" "electron_app/img/riot.png"
 
 convert "$tmpdir/16.png" "$tmpdir/32.png" "$tmpdir/64.png" "$tmpdir/128.png"  "$tmpdir/256.png" "res/vector-icons/favicon.ico"
