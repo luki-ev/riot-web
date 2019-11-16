@@ -95,7 +95,7 @@ async function initPage() {
         document.getElementById('configure_riot_button').href =
             "https://riot.im/config/config?hs_url=" + encodeURIComponent(hsUrl) +
             "&is_url=" + encodeURIComponent(isUrl);
-        document.getElementById('step1_heading').innerHTML= '1: Install the app';
+        document.getElementById('step1_heading').innerHTML= '1: App installieren';
         document.getElementById('step2_container').style.display = 'block';
         document.getElementById('hs_url').innerText = hsUrl;
 
