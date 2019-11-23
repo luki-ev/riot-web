@@ -52,5 +52,5 @@
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
     "Invalid JSON": "Ungültiges JSON",
     "If you run into any bugs or have feedback you'd like to share, please let us know on GitHub.": "Wenn du Fehler bemerkst oder eine Rückmeldung geben möchtest, teile dies uns per Email unter support@synod.im mit.",
-    "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im <a href='https://doc.librechurch.org/Wiki.jsp?page=Matrix'>LibreChurch Wiki</a>."
+    "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im LibreChurch Wiki: https://doc.librechurch.org/Wiki.jsp?page=Matrix"
 }
