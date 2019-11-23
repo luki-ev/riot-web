@@ -50,5 +50,7 @@
     "Your Riot is misconfigured": "Dein Riot ist falsch konfiguriert",
     "Your Riot configuration contains invalid JSON. Please correct the problem and reload the page.": "Deine Riot Konfiguration enthält ungültiges JSON. Bitte korrigiere das Problem und lade die Seite neu.",
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
-    "Invalid JSON": "Ungültiges JSON"
+    "Invalid JSON": "Ungültiges JSON",
+    "If you run into any bugs or have feedback you'd like to share, please let us know on GitHub.": "Wenn du Fehler bemerkst oder eine Rückmeldung geben möchtest, teile dies uns per Email unter support@synod.im mit.",
+    "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im <a href='https://doc.librechurch.org/Wiki.jsp?page=Matrix'>LibreChurch Wiki</a>."
 }
