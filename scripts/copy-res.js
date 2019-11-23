@@ -56,6 +56,7 @@ const COPY_LIST = [
     ["res/manifest.json", "webapp"],
     ["res/welcome.html", "webapp"],
     ["res/welcome/**", "webapp/welcome"],
+    ["res/home.html", "webapp"],
     ["res/themes/**", "webapp/themes"],
     ["res/vector-icons/**", "webapp/vector-icons"],
     ["node_modules/matrix-react-sdk/res/media/**", "webapp/media"],
