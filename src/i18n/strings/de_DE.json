@@ -51,7 +51,7 @@
     "Your Riot configuration contains invalid JSON. Please correct the problem and reload the page.": "Deine Riot Konfiguration enthält ungültiges JSON. Bitte korrigiere das Problem und lade die Seite neu.",
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
     "Invalid JSON": "Ungültiges JSON",
-    "Explore": "Erkunden",
+    "Explore": "Entdecken",
     "Filter": "Filter",
     "%(roomName)s can't be previewed. Do you want to join it?": "Vorschau von %(roomName)s kann nicht angezeigt werden. Möchtest du den Raum betreten?",
     "Join the discussion": "Den Raum betreten",
