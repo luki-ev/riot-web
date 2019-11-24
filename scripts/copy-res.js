@@ -11,7 +11,8 @@ const loaderUtils = require("loader-utils");
 // This could readily be automated, but it's nice to explicitly
 // control when new languages are available.
 const INCLUDE_LANGS = [
-    {'value': 'de_DE', 'label': 'Deutsch'}
+    {'value': 'de_DE', 'label': 'Deutsch'},
+    {'value': 'en_EN', 'label': 'English'}
 ];
 
 // cpx includes globbed parts of the filename in the destination, but excludes
