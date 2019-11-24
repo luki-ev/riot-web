@@ -52,6 +52,7 @@
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
     "Invalid JSON": "Ungültiges JSON",
     "Explore": "Erkunden",
+    "Filter": "Filter",
     "%(roomName)s can't be previewed. Do you want to join it?": "Vorschau von %(roomName)s kann nicht angezeigt werden. Möchtest du den Raum betreten?",
     "Join the discussion": "Den Raum betreten",
     "If you run into any bugs or have feedback you'd like to share, please let us know on GitHub.": "Wenn du Fehler bemerkst oder eine Rückmeldung geben möchtest, teile dies uns per Email unter support@synod.im mit.",
