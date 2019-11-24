@@ -51,6 +51,7 @@
     "Your Riot configuration contains invalid JSON. Please correct the problem and reload the page.": "Deine Riot Konfiguration enthält ungültiges JSON. Bitte korrigiere das Problem und lade die Seite neu.",
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
     "Invalid JSON": "Ungültiges JSON",
+    "Explore": "Erkunden",
     "If you run into any bugs or have feedback you'd like to share, please let us know on GitHub.": "Wenn du Fehler bemerkst oder eine Rückmeldung geben möchtest, teile dies uns per Email unter support@synod.im mit.",
     "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im LibreChurch Wiki: https://doc.librechurch.org/Wiki.jsp?page=Matrix",
     "If you don't specify an email address, you won't be able to reset your password. Are you sure?": "Wenn du dein Passwort vergisst, gibt es keine Möglichkeit, dieses zurückzusetzen. Bitte bewahre dein Passwort gut auf."
