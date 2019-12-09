@@ -57,5 +57,6 @@
     "Join the discussion": "Den Raum betreten",
     "If you run into any bugs or have feedback you'd like to share, please let us know on GitHub.": "Wenn du Fehler bemerkst oder eine Rückmeldung geben möchtest, teile dies uns per Email unter support@synod.im mit.",
     "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im LibreChurch Wiki: https://doc.librechurch.org/Wiki.jsp?page=Matrix",
-    "If you don't specify an email address, you won't be able to reset your password. Are you sure?": "Wenn du dein Passwort vergisst, gibt es keine Möglichkeit, dieses zurückzusetzen. Bitte bewahre dein Passwort gut auf."
+    "If you don't specify an email address, you won't be able to reset your password. Are you sure?": "Wenn du dein Passwort vergisst, gibt es keine Möglichkeit, dieses zurückzusetzen. Bitte bewahre dein Passwort gut auf.",
+    "A new version of Riot is available.": "Eine neue Version von Synod.im ist verfügbar."
 }
