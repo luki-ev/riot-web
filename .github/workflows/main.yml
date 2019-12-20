@@ -1,4 +1,4 @@
-name: CI
+name: Create release tarball from tag
 
 on: 
   push:
@@ -21,8 +21,7 @@ jobs:
     - run: yarn dist
       env:
         RIOT_OG_IMAGE_URL: https://web.synod.im/themes/riot/img/logos/synod-im-logo-color.png
-    - name: Release
-      uses: softprops/action-gh-release@78c309ef59fdb9557cd6574f2e0be552936ed728
+    - uses: softprops/action-gh-release@78c309ef59fdb9557cd6574f2e0be552936ed728
       with:
         files: dist/*.tar.gz
       env:
