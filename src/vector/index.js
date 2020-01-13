@@ -23,7 +23,6 @@ limitations under the License.
 require('gemini-scrollbar/gemini-scrollbar.css');
 require('gfm.css/gfm.css');
 require('highlight.js/styles/github.css');
-require('draft-js/dist/Draft.css');
 
 import olmWasmPath from 'olm/olm.wasm';
 
@@ -192,14 +191,6 @@ async function loadApp() {
         console.log("Using Electron platform");
         const plaf = new ElectronPlatform();
         PlatformPeg.set(plaf);
-
-        // Electron only: see if we need to do a one-time data
-        // migration
-        if (window.localStorage.getItem('mx_user_id') === null) {
-            console.log("Migrating session from old origin...");
-            await plaf.migrateFromOldOrigin();
-            console.log("Origin migration complete");
-        }
     } else {
         console.log("Using Web platform");
         PlatformPeg.set(new WebPlatform());
