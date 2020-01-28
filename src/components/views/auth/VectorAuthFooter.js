@@ -16,14 +16,13 @@ limitations under the License.
 */
 
 import React from 'react';
-import SdkConfig from 'matrix-react-sdk/lib/SdkConfig';
+import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
+import { _t } from 'matrix-react-sdk/src/languageHandler';
 
-import { _t } from 'matrix-react-sdk/lib/languageHandler';
-
-module.exports = () => {
+const VectorAuthFooter = () => {
     const brandingConfig = SdkConfig.get().branding;
     let links = [
-        {"text": "blog", "url": "https://medium.com/@RiotChat"},
+        {"text": "blog", "url": "https://blog.riot.im"},
         {"text": "twitter", "url": "https://twitter.com/@RiotChat"},
         {"text": "github", "url": "https://github.com/vector-im/riot-web"},
     ];
@@ -48,4 +47,7 @@ module.exports = () => {
         </div>
     );
 };
-module.exports.replaces = 'AuthFooter';
+
+VectorAuthFooter.replaces = 'AuthFooter';
+
+export default VectorAuthFooter;
