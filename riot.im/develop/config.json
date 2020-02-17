@@ -20,9 +20,9 @@
         "feature_many_integration_managers": "labs",
         "feature_mjolnir": "labs",
         "feature_dm_verification": "labs",
-        "feature_cross_signing": "labs",
+        "feature_cross_signing": "enable",
+        "feature_invite_only_padlocks": "enable",
         "feature_event_indexing": "disable",
-        "feature_ftue_dms": "labs",
         "feature_bridge_state": "labs",
         "feature_presence_in_room_list": "labs"
     },
@@ -30,7 +30,7 @@
     "piwik": {
         "url": "https://piwik.riot.im/",
         "siteId": 1,
-        "policyUrl": "https://matrix.org/docs/guides/riot_im_cookie_policy"
+        "policyUrl": "https://matrix.org/legal/riot-im-cookie-policy"
     },
     "roomDirectory": {
         "servers": [
@@ -47,7 +47,7 @@
             "text": "Privacy Policy"
         },
         {
-            "url": "https://matrix.org/docs/guides/riot_im_cookie_policy",
+            "url": "https://matrix.org/legal/riot-im-cookie-policy",
             "text": "Cookie Policy"
         }
     ]
