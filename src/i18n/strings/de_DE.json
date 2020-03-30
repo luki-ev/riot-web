@@ -24,6 +24,7 @@
     "The message from the parser is: %(message)s": "Die Nachricht des Parsers ist: %(message)s",
     "Invalid JSON": "Ungültiges JSON",
     "Go to your browser to complete Sign In": "Gehe zu deinem Browser, um die Anmeldung abzuschließen",
+    "Open user settings": "Öffne Nutzer-Einstellungen",
     "Explore": "Entdecken",
     "Filter": "Filter",
     "%(roomName)s can't be previewed. Do you want to join it?": "Vorschau von %(roomName)s kann nicht angezeigt werden. Möchtest du den Raum betreten?",
