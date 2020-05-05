@@ -33,5 +33,12 @@
     "To help avoid duplicate issues, please <existingIssuesLink>view existing issues</existingIssuesLink> first (and add a +1) or <newIssueLink>create a new issue</newIssueLink> if you can't find it.": "Weitere Hilfe findest du im LibreChurch Wiki: https://doc.librechurch.org/Wiki.jsp?page=Matrix",
     "If you don't specify an email address, you won't be able to reset your password. Are you sure?": "Wenn du dein Passwort vergisst, gibt es keine Möglichkeit, dieses zurückzusetzen. Bitte bewahre dein Passwort gut auf.",
     "A new version of Riot is available.": "Eine neue Version von Synod.im ist verfügbar.",
-    "Set an email for account recovery. Use email to optionally be discoverable by existing contacts.": "Wenn du eine E-Mail-Adresse angibst, kannst du darüber dein Passwort zurücksetzen."
+    "Set an email for account recovery. Use email to optionally be discoverable by existing contacts.": "Wenn du eine E-Mail-Adresse angibst, kannst du darüber dein Passwort zurücksetzen.",
+    "Verify yourself & others to keep your chats safe": "Prüfe deine Geräte und andere Menschen um deine Nachrichten abzusichern.",
+    "Set a recovery passphrase to secure encrypted information and recover it if you log out. This should be different to your account password:": "Setze ein Wiederherstellungspasswort, mit dem du an dein persönlichen Entschlüsselungsschlüssel und deine Nachrichten kommst, falls du dich ausloggst. Diese sollte sich von deinem normalen Passwort unterscheiden.",
+    "Enter a recovery passphrase": "Gib ein Wiederherstellungspasswort ein",
+    "Back up encrypted message keys": "Sichere deine Nachrichtenschlüssel auf deinem Matrix-Server",
+    "Great! This recovery passphrase looks strong enough.": "Großartig, dein Wiederherstellungspasswort sieht komplex genug aus",
+    "Confirm your recovery passphrase": "Bestätige dein Wiederherstellungspasswort",
+    "Your recovery key is a safety net - you can use it to restore access to your encrypted messages if you forget your recovery passphrase.": "Dein Wiederherstellungsschlüssel ist ein Sicherungsnetz - damit kannst du deine verschlüsselten Nachrichten wiederherstellen, wenn du dein Wiederherstellungspasswort vergessen hast."
 }
