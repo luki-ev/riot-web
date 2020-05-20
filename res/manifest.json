@@ -45,12 +45,12 @@
     "related_applications": [
         {
             "platform": "play",
-            "url": "https://play.google.com/store/apps/details?id=im.vector.alpha",
-            "id": "im.vector.alpha"
+            "url": "https://play.google.com/store/apps/details?id=im.vector.riotx",
+            "id": "im.vector.riotx"
         },
         {
             "platform": "itunes",
-            "url": "https://itunes.apple.com/gb/app/riot-open-source-team-collaboration-via-matrix/id1083446067"
+            "url": "https://apps.apple.com/de/app/synod-im/id1488171544"
         }
     ]
 }
