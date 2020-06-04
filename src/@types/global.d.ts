@@ -24,5 +24,18 @@ declare global {
 
         // electron-only
         ipcRenderer: any;
+
+        // opera-only
+        opera: any;
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/InstallTrigger
+        InstallTrigger: any;
+    }
+}
+
+// add method which is missing from the node typing
+declare module "url" {
+    interface Url {
+        format(): string;
     }
 }
