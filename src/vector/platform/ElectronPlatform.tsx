@@ -502,8 +502,8 @@ export default class ElectronPlatform extends VectorBasePlatform {
 
     getSSOCallbackUrl(fragmentAfterLogin: string): URL {
         const url = super.getSSOCallbackUrl(fragmentAfterLogin);
-        url.protocol = "riot";
-        url.searchParams.set("riot-desktop-ssoid", this.ssoID);
+        url.protocol = "element";
+        url.searchParams.set("element-desktop-ssoid", this.ssoID);
         return url;
     }
 

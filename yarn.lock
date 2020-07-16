@@ -7000,10 +7000,10 @@ matrix-mock-request@^1.2.3:
     bluebird "^3.5.0"
     expect "^1.20.2"
 
-matrix-react-sdk@2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/matrix-react-sdk/-/matrix-react-sdk-2.10.0.tgz#41548173d46da0e746319256acdda117766cec6e"
-  integrity sha512-70wmkuXCkKQUJNDvoJ9EzdSeBtefOFDMr18r2SM5ujKGAIMiIxg/ZFm68oZ57b/eypj6pedTJN2dAcSznT/Tgw==
+matrix-react-sdk@2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/matrix-react-sdk/-/matrix-react-sdk-2.10.1.tgz#e7307773702007a3b7145b2dbef6b7a9b84bafa8"
+  integrity sha512-5dauHbDk9fs6rYRt5L56Lr/o1qKLiL/ATySXk4RSoNUjq9v61bW8gIwQ3WgsCTzWd7U6NjzfdKPNnDEIdJID9g==
   dependencies:
     "@babel/runtime" "^7.8.3"
     await-lock "^2.0.1"
