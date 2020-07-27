@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="synod-im-text.svg"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 52.916665 11.641667"
+   height="44"
+   width="200">
+  <defs
+     id="defs2">
+    <rect
+       id="rect835"
+       height="12.33056"
+       width="45.047223"
+       y="21.166668"
+       x="22.678572" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:window-height="1035"
+     inkscape:window-width="1248"
+     units="px"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="232.38337"
+     inkscape:cx="217.12542"
+     inkscape:zoom="1.0074671"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Ebene 1">
+    <text
+       transform="translate(-16.807828,-21.797652)"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:10.58329999999999949px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato Medium';white-space:pre;shape-inside:url(#rect835);fill:#ffffff;fill-opacity:1;"
+       id="text833"
+       xml:space="preserve"><tspan
+         x="22.677734"
+         y="31.008484"><tspan
+           style="shape-inside:url(#rect835)">Synod.im</tspan></tspan></text>
+  </g>
+</svg>
