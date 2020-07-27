@@ -45,8 +45,8 @@
     "related_applications": [
         {
             "platform": "play",
-            "url": "https://play.google.com/store/apps/details?id=im.vector.riotx",
-            "id": "im.vector.riotx"
+            "url": "https://play.google.com/store/apps/details?id=im.vector.app",
+            "id": "im.vector.app"
         },
         {
             "platform": "itunes",
