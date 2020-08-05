@@ -56,5 +56,9 @@
     "Enter a Security Phrase": "Erstelle ein Wiederherstellungspasswort",
     "Use a secret phrase only you know, and optionally save a Security Key to use for backup.": "Erstelle dir selbst ein Wiederherstellungspasswort und nutze optional zusätzlich einen Sicherheitsschlüssel.",
     "Save your Security Key": "Sichere deinen Sicherheitsschlüssel",
-    "Store your Security Key somewhere safe, like a password manager or a safe, as it’s used to safeguard your encrypted data.": "Speichere deinen Sicherheitsschlüssel an einem sicheren Ort, wie dein Passwortmanager, oder drucke ihn aus und lege ihn offline sicher ab. Der Sicherheitsschlüssel erlaubt Zugriff auf deine Verschlüsselungsschlüssel und damit deine verschlüsselten Nachrichten."
+    "Store your Security Key somewhere safe, like a password manager or a safe, as it’s used to safeguard your encrypted data.": "Speichere deinen Sicherheitsschlüssel an einem sicheren Ort, wie dein Passwortmanager, oder drucke ihn aus und lege ihn offline sicher ab. Der Sicherheitsschlüssel erlaubt Zugriff auf deine Verschlüsselungsschlüssel und damit deine verschlüsselten Nachrichten.",
+    "Set a Security Phrase": "Wiederherstellungspasswort vergeben",
+    "Enter a security phrase only you know, as it’s used to safeguard your data. To be secure, you shouldn’t re-use your account password.": "Wähle ein Wiederherstellungspasswort. Dieses erlaubt Zugriff auf deine Verschlüsselungsschlüssel und damit deine verschlüsselten Nachrichten.",
+    "If you cancel now, you may lose encrypted messages & data if you lose access to your logins.": "Wenn du jetzt abbrichst, verlierst du Zugriff auf deine verschlüsselten Nachrichten, wenn du alle deine Geräte verlierst.",
+    "You can also set up Secure Backup & manage your keys in Settings.": "Du kannst die Schlüsselsicherung auch in den Einstellungen später einrichten."
 }
