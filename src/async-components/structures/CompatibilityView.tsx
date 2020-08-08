@@ -83,7 +83,7 @@ const CompatibilityView: React.FC<IProps> = ({ onAccept }) => {
                             <img height="48" src="themes/element/img/download/apple.svg" alt="Apple App Store" />
                         </a>
                         <p className="mx_Spacer"><strong>Android</strong></p>
-                        <a href="https://play.google.com/store/apps/details?id=im.vector.app" target="_blank"
+                        <a href="https://play.google.com/store/apps/details?id=im.synod" target="_blank"
                            className="mx_ClearDecoration">
                             <img height="48" src="themes/element/img/download/google.svg" alt="Google Play Store" />
                         </a>
