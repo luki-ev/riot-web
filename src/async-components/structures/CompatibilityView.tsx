@@ -76,9 +76,9 @@ const CompatibilityView: React.FC<IProps> = ({ onAccept }) => {
             <div className="mx_HomePage_col">
                 <div className="mx_HomePage_row">
                     <div>
-                        <h2 id="step2_heading">Use Element on mobile</h2>
+                        <h2 id="step2_heading">Use Synod on mobile</h2>
                         <p><strong>iOS</strong> (iPhone or iPad)</p>
-                        <a href="https://apps.apple.com/app/vector/id1083446067" target="_blank"
+                        <a href="https://apps.apple.com/de/app/synod-im/id1488171544" target="_blank"
                            className="mx_ClearDecoration">
                             <img height="48" src="themes/element/img/download/apple.svg" alt="Apple App Store" />
                         </a>
@@ -87,7 +87,7 @@ const CompatibilityView: React.FC<IProps> = ({ onAccept }) => {
                            className="mx_ClearDecoration">
                             <img height="48" src="themes/element/img/download/google.svg" alt="Google Play Store" />
                         </a>
-                        <a href="https://f-droid.org/repository/browse/?fdid=im.vector.alpha" target="_blank"
+                        <a href="https://f-droid.org/repository/browse/?fdid=im.vector.app" target="_blank"
                            className="mx_ClearDecoration">
                             <img height="48" src="themes/element/img/download/fdroid.svg" alt="F-Droid" />
                         </a>
@@ -97,7 +97,7 @@ const CompatibilityView: React.FC<IProps> = ({ onAccept }) => {
 
             <div className="mx_HomePage_row mx_Center mx_Spacer">
                 <p className="mx_Spacer">
-                    <a href="https://element.io" target="_blank" className="mx_FooterLink">
+                    <a href="https://synod.im" target="_blank" className="mx_FooterLink">
                         { _t("Go to element.io") }
                     </a>
                 </p>
