@@ -1,5 +1,42 @@
+Changes in [1.7.4](https://github.com/vector-im/element-web/releases/tag/v1.7.4) (2020-08-17)
+=============================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.4-rc.1...v1.7.4)
+
+ * Upgrade to React SDK 3.2.0 and JS SDK 8.1.0
+
+Changes in [1.7.4-rc.1](https://github.com/vector-im/element-web/releases/tag/v1.7.4-rc.1) (2020-08-13)
+=======================================================================================================
+[Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.3...v1.7.4-rc.1)
+
+ * Upgrade to React SDK 3.2.0-rc.1 and JS SDK 8.1.0-rc.1
+ * Update policy links to element.io
+   [\#14905](https://github.com/vector-im/element-web/pull/14905)
+ * Update from Weblate
+   [\#14949](https://github.com/vector-im/element-web/pull/14949)
+ * Try to close notification on all platforms which support it, not just
+   electron
+   [\#14939](https://github.com/vector-im/element-web/pull/14939)
+ * Update bug report submission URL
+   [\#14903](https://github.com/vector-im/element-web/pull/14903)
+ * Fix arm docker build
+   [\#14522](https://github.com/vector-im/element-web/pull/14522)
+
 Changes in [1.7.3](https://github.com/vector-im/element-web/releases/tag/v1.7.3) (2020-08-05)
 =============================================================================================
+
+## Security notice
+
+Element Web 1.7.3 (as well as the earlier release 1.7.2) fixes an issue where
+replying to a specially formatted message would make it seem like the replier
+said something they did not. Thanks to Sorunome for responsibly disclosing this
+via Matrix's Security Disclosure Policy.
+
+Element Web 1.7.3 (as well as the earlier release 1.7.2) fixes an issue where an
+unexpected language ID in a code block could cause Element to crash. Thanks to
+SakiiR for responsibly disclosing this via Matrix's Security Disclosure Policy.
+
+## All changes
+
 [Full Changelog](https://github.com/vector-im/element-web/compare/v1.7.3-rc.1...v1.7.3)
 
  * Upgrade to React SDK 3.1.0 and JS SDK 8.0.1
