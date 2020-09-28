@@ -1,7 +1,7 @@
 {
   "name": "riot-web",
   "productName": "Riot",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "description": "A feature-rich client for Matrix.org",
   "author": "New Vector Ltd.",
   "repository": {
@@ -60,13 +60,13 @@
     "gfm.css": "^1.1.2",
     "highlight.js": "^9.13.1",
     "jsrsasign": "^9.1.5",
-    "matrix-js-sdk": "8.3.0",
-    "matrix-react-sdk": "3.4.1",
+    "matrix-js-sdk": "8.4.1",
+    "matrix-react-sdk": "3.5.0",
     "olm": "https://packages.matrix.org/npm/olm/olm-3.1.4.tgz",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "sanitize-html": "^1.19.1",
+    "sanitize-html": "github:apostrophecms/sanitize-html#3c7f93f2058f696f5359e3e58d464161647226db",
     "ua-parser-js": "^0.7.19",
     "url": "^0.11.0"
   },
@@ -92,6 +92,7 @@
     "@types/node": "^12.12.41",
     "@types/react": "16.9",
     "@types/react-dom": "^16.9.4",
+    "@types/sanitize-html": "^1.23.3",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
