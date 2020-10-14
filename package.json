@@ -1,7 +1,7 @@
 {
   "name": "riot-web",
   "productName": "Riot",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "A feature-rich client for Matrix.org",
   "author": "New Vector Ltd.",
   "repository": {
@@ -46,7 +46,7 @@
     "build:bundle-stats": "webpack --progress --bail --mode production --json > webpack-stats.json",
     "build:types": "tsc --emitDeclarationOnly --jsx react",
     "dist": "scripts/package.sh",
-    "start": "concurrently --kill-others-on-fail --prefix \"{time} [{name}]\" -n reskindex,reskindex-react,res,riot-js \"yarn reskindex:watch\" \"yarn reskindex:watch-react\" \"yarn start:res\" \"yarn start:js\"",
+    "start": "concurrently --kill-others-on-fail --prefix \"{time} [{name}]\" -n reskindex,reskindex-react,res,element-js \"yarn reskindex:watch\" \"yarn reskindex:watch-react\" \"yarn start:res\" \"yarn start:js\"",
     "start:res": "yarn build:jitsi && node scripts/copy-res.js -w",
     "start:js": "webpack-dev-server --host=0.0.0.0 --output-filename=bundles/_dev_/[name].js --output-chunk-filename=bundles/_dev_/[name].js -w --progress --mode development",
     "lint": "yarn lint:types && yarn lint:js && yarn lint:style",
@@ -60,9 +60,10 @@
     "gfm.css": "^1.1.2",
     "highlight.js": "^9.13.1",
     "jsrsasign": "^9.1.5",
-    "matrix-js-sdk": "8.4.1",
-    "matrix-react-sdk": "3.5.0",
-    "olm": "https://packages.matrix.org/npm/olm/olm-3.1.4.tgz",
+    "matrix-js-sdk": "8.5.0",
+    "matrix-react-sdk": "3.6.0",
+    "matrix-widget-api": "^0.1.0-beta.2",
+    "olm": "https://packages.matrix.org/npm/olm/olm-3.2.1.tgz",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -113,8 +114,8 @@
     "file-loader": "^5.0.2",
     "fs-extra": "^0.30.0",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.9.0",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest": "^26.5.2",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "json-loader": "^0.5.3",
     "loader-utils": "^1.2.3",
     "matrix-mock-request": "^1.2.3",
@@ -146,7 +147,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "jest": {
-    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "testEnvironment": "jest-environment-jsdom-sixteen",
     "testMatch": [
       "<rootDir>/test/**/*-test.js"
     ],
