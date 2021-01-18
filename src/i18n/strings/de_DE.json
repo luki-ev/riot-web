@@ -63,5 +63,6 @@
     "If you cancel now, you may lose encrypted messages & data if you lose access to your logins.": "Wenn du jetzt abbrichst, verlierst du Zugriff auf deine verschlüsselten Nachrichten, wenn du alle deine Geräte verlierst.",
     "You can also set up Secure Backup & manage your keys in Settings.": "Du kannst die Schlüsselsicherung auch in den Einstellungen später einrichten.",
     "Invite someone using their name, username (like <userId/>), email address or <a>share this room</a>.": "Lade jemanden mit seinem Namen oder Benutzernamen (z.B. <userId/>) ein oder <a>teile diesen Raum</a>.",
-    "Start a conversation with someone using their name, username (like <userId/>) or email address.": "Starte eine Unterhaltung mit jemandem indem du seinen Namen oder Benutzernamen (z.B. <userId/>) eingibst."
+    "Start a conversation with someone using their name, username (like <userId/>) or email address.": "Starte eine Unterhaltung mit jemandem indem du seinen Namen oder Benutzernamen (z.B. <userId/>) eingibst.",
+    "Host account on": "Benutzerkonto bei"
 }
