@@ -18,10 +18,6 @@
         "siteId": 1,
         "policyUrl": "https://element.io/cookie-policy"
     },
-    "countly": {
-        "url": "https://try.count.ly",
-        "appKey": "8abf1ee15646bc884556b82e5053857904264b66"
-    },
     "roomDirectory": {
         "servers": [
             "matrix.org",
@@ -41,5 +37,15 @@
             "url": "https://element.io/cookie-policy",
             "text": "Cookie Policy"
         }
-    ]
+    ],
+    "hostSignup": {
+      "brand": "Element Home",
+      "cookiePolicyUrl": "https://element.io/cookie-policy",
+      "domains": [
+          "matrix.org"
+      ],
+      "privacyPolicyUrl": "https://element.io/privacy",
+      "termsOfServiceUrl": "https://element.io/terms-of-service",
+      "url": "https://ems.element.io/element-home/in-app-loader"
+    }
 }
