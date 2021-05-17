@@ -1,6 +1,6 @@
 {
   "name": "element-web",
-  "version": "1.7.27",
+  "version": "1.7.28",
   "description": "A feature-rich client for Matrix.org",
   "author": "New Vector Ltd.",
   "repository": {
@@ -45,7 +45,7 @@
     "dist": "scripts/package.sh",
     "start": "concurrently --kill-others-on-fail --prefix \"{time} [{name}]\" -n reskindex,reskindex-react,res,element-js \"yarn reskindex:watch\" \"yarn reskindex:watch-react\" \"yarn start:res\" \"yarn start:js\"",
     "start:res": "yarn build:jitsi && node scripts/copy-res.js -w",
-    "start:js": "webpack-dev-server --host=0.0.0.0 --output-filename=bundles/_dev_/[name].js --output-chunk-filename=bundles/_dev_/[name].js -w --progress --mode development",
+    "start:js": "webpack-dev-server --host=0.0.0.0 --output-filename=bundles/_dev_/[name].js --output-chunk-filename=bundles/_dev_/[name].js -w --progress --mode development --disable-host-check",
     "lint": "yarn lint:types && yarn lint:js && yarn lint:style",
     "lint:js": "eslint src",
     "lint:types": "tsc --noEmit --jsx react",
@@ -58,15 +58,15 @@
     "highlight.js": "^10.5.0",
     "jsrsasign": "^10.1.5",
     "katex": "^0.12.0",
-    "matrix-js-sdk": "10.1.0",
-    "matrix-react-sdk": "3.20.0",
+    "matrix-js-sdk": "11.0.0",
+    "matrix-react-sdk": "3.21.0",
     "matrix-widget-api": "^0.1.0-beta.13",
     "olm": "https://packages.matrix.org/npm/olm/olm-3.2.1.tgz",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "sanitize-html": "github:apostrophecms/sanitize-html#3c7f93f2058f696f5359e3e58d464161647226db",
-    "ua-parser-js": "^0.7.23"
+    "sanitize-html": "^2.3.2",
+    "ua-parser-js": "^0.7.24"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -92,7 +92,7 @@
     "@types/node": "^14.14.22",
     "@types/react": "^16.9",
     "@types/react-dom": "^16.9.10",
-    "@types/sanitize-html": "^1.27.1",
+    "@types/sanitize-html": "^2.3.1",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
