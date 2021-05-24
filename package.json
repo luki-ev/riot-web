@@ -1,6 +1,6 @@
 {
   "name": "element-web",
-  "version": "1.7.28",
+  "version": "1.7.29",
   "description": "A feature-rich client for Matrix.org",
   "author": "New Vector Ltd.",
   "repository": {
@@ -44,6 +44,7 @@
     "build:bundle-stats": "webpack --progress --bail --mode production --json > webpack-stats.json",
     "dist": "scripts/package.sh",
     "start": "concurrently --kill-others-on-fail --prefix \"{time} [{name}]\" -n reskindex,reskindex-react,res,element-js \"yarn reskindex:watch\" \"yarn reskindex:watch-react\" \"yarn start:res\" \"yarn start:js\"",
+    "start:https": "concurrently --kill-others-on-fail --prefix \"{time} [{name}]\" -n reskindex,reskindex-react,res,element-js \"yarn reskindex:watch\" \"yarn reskindex:watch-react\" \"yarn start:res\" \"yarn start:js --https\"",
     "start:res": "yarn build:jitsi && node scripts/copy-res.js -w",
     "start:js": "webpack-dev-server --host=0.0.0.0 --output-filename=bundles/_dev_/[name].js --output-chunk-filename=bundles/_dev_/[name].js -w --progress --mode development --disable-host-check",
     "lint": "yarn lint:types && yarn lint:js && yarn lint:style",
@@ -53,15 +54,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@matrix-org/olm": "https://gitlab.matrix.org/api/v4/projects/27/packages/npm/@matrix-org/olm/-/@matrix-org/olm-3.2.3.tgz",
     "browser-request": "^0.3.3",
     "gfm.css": "^1.1.2",
     "highlight.js": "^10.5.0",
     "jsrsasign": "^10.1.5",
     "katex": "^0.12.0",
-    "matrix-js-sdk": "11.0.0",
-    "matrix-react-sdk": "3.21.0",
-    "matrix-widget-api": "^0.1.0-beta.13",
-    "olm": "https://packages.matrix.org/npm/olm/olm-3.2.1.tgz",
+    "matrix-js-sdk": "11.1.0",
+    "matrix-react-sdk": "3.22.0",
+    "matrix-widget-api": "^0.1.0-beta.14",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -167,7 +168,10 @@
       "^react$": "<rootDir>/node_modules/react",
       "^react-dom$": "<rootDir>/node_modules/react-dom",
       "^matrix-js-sdk$": "<rootDir>/node_modules/matrix-js-sdk/src",
-      "^matrix-react-sdk$": "<rootDir>/node_modules/matrix-react-sdk/src"
+      "^matrix-react-sdk$": "<rootDir>/node_modules/matrix-react-sdk/src",
+      "decoderWorker\\.min\\.js": "<rootDir>/node_modules/matrix-react-sdk/__mocks__/empty.js",
+      "decoderWorker\\.min\\.wasm": "<rootDir>/node_modules/matrix-react-sdk/__mocks__/empty.js",
+      "waveWorker\\.min\\.js": "<rootDir>/node_modules/matrix-react-sdk/__mocks__/empty.js"
     },
     "transformIgnorePatterns": [
       "/node_modules/(?!matrix-js-sdk).+$",
