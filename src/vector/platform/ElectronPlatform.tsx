@@ -17,36 +17,45 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import VectorBasePlatform from './VectorBasePlatform';
-import {UpdateCheckStatus} from "matrix-react-sdk/src/BasePlatform";
+import { UpdateCheckStatus } from "matrix-react-sdk/src/BasePlatform";
 import BaseEventIndexManager, {
-    CrawlerCheckpoint,
-    EventAndProfile,
-    IndexStats,
-    MatrixEvent,
-    MatrixProfile,
-    SearchArgs,
-    SearchResult,
+    ICrawlerCheckpoint,
+    IEventAndProfile,
+    IIndexStats,
+    IMatrixEvent,
+    IMatrixProfile,
+    ISearchArgs,
+    ISearchResult,
 } from 'matrix-react-sdk/src/indexing/BaseEventIndexManager';
 import dis from 'matrix-react-sdk/src/dispatcher/dispatcher';
-import {_t, _td} from 'matrix-react-sdk/src/languageHandler';
+import { _t, _td } from 'matrix-react-sdk/src/languageHandler';
 import SdkConfig from 'matrix-react-sdk/src/SdkConfig';
 import * as rageshake from 'matrix-react-sdk/src/rageshake/rageshake';
-import {MatrixClient} from "matrix-js-sdk/src/client";
-import {Room} from "matrix-js-sdk/src/models/room";
+import { MatrixClient } from "matrix-js-sdk/src/client";
+import { Room } from "matrix-js-sdk/src/models/room";
 import Modal from "matrix-react-sdk/src/Modal";
 import InfoDialog from "matrix-react-sdk/src/components/views/dialogs/InfoDialog";
 import Spinner from "matrix-react-sdk/src/components/views/elements/Spinner";
-import {Categories, Modifiers, registerShortcut} from "matrix-react-sdk/src/accessibility/KeyboardShortcuts";
-import {Key} from "matrix-react-sdk/src/Keyboard";
+import {
+    Categories,
+    CMD_OR_CTRL,
+    DIGITS,
+    Modifiers,
+    registerShortcut,
+} from "matrix-react-sdk/src/accessibility/KeyboardShortcuts";
+import { isOnlyCtrlOrCmdKeyEvent, Key } from "matrix-react-sdk/src/Keyboard";
 import React from "react";
-import {randomString} from "matrix-js-sdk/src/randomstring";
-import {Action} from "matrix-react-sdk/src/dispatcher/actions";
-import {ActionPayload} from "matrix-react-sdk/src/dispatcher/payloads";
-import {showToast as showUpdateToast} from "matrix-react-sdk/src/toasts/UpdateToast";
-import {CheckUpdatesPayload} from "matrix-react-sdk/src/dispatcher/payloads/CheckUpdatesPayload";
+import { randomString } from "matrix-js-sdk/src/randomstring";
+import { Action } from "matrix-react-sdk/src/dispatcher/actions";
+import { ActionPayload } from "matrix-react-sdk/src/dispatcher/payloads";
+import { SwitchSpacePayload} from "matrix-react-sdk/src/dispatcher/payloads/SwitchSpacePayload";
+import { showToast as showUpdateToast } from "matrix-react-sdk/src/toasts/UpdateToast";
+import { CheckUpdatesPayload } from "matrix-react-sdk/src/dispatcher/payloads/CheckUpdatesPayload";
 import ToastStore from "matrix-react-sdk/src/stores/ToastStore";
 import GenericExpiringToast from "matrix-react-sdk/src/components/views/toasts/GenericExpiringToast";
+import SettingsStore from 'matrix-react-sdk/src/settings/SettingsStore';
+
+import VectorBasePlatform from './VectorBasePlatform';
 
 const electron = window.electron;
 const isMac = navigator.platform.toUpperCase().includes('MAC');
@@ -143,7 +152,7 @@ class SeshatIndexManager extends BaseEventIndexManager {
         return this._ipcCall('initEventIndex', userId, deviceId);
     }
 
-    async addEventToIndex(ev: MatrixEvent, profile: MatrixProfile): Promise<void> {
+    async addEventToIndex(ev: IMatrixEvent, profile: IMatrixProfile): Promise<void> {
         return this._ipcCall('addEventToIndex', ev, profile);
     }
 
@@ -163,31 +172,31 @@ class SeshatIndexManager extends BaseEventIndexManager {
         return this._ipcCall('commitLiveEvents');
     }
 
-    async searchEventIndex(searchConfig: SearchArgs): Promise<SearchResult> {
+    async searchEventIndex(searchConfig: ISearchArgs): Promise<ISearchResult> {
         return this._ipcCall('searchEventIndex', searchConfig);
     }
 
     async addHistoricEvents(
-        events: [EventAndProfile],
-        checkpoint: CrawlerCheckpoint | null,
-        oldCheckpoint: CrawlerCheckpoint | null,
+        events: IEventAndProfile[],
+        checkpoint: ICrawlerCheckpoint | null,
+        oldCheckpoint: ICrawlerCheckpoint | null,
     ): Promise<boolean> {
         return this._ipcCall('addHistoricEvents', events, checkpoint, oldCheckpoint);
     }
 
-    async addCrawlerCheckpoint(checkpoint: CrawlerCheckpoint): Promise<void> {
+    async addCrawlerCheckpoint(checkpoint: ICrawlerCheckpoint): Promise<void> {
         return this._ipcCall('addCrawlerCheckpoint', checkpoint);
     }
 
-    async removeCrawlerCheckpoint(checkpoint: CrawlerCheckpoint): Promise<void> {
+    async removeCrawlerCheckpoint(checkpoint: ICrawlerCheckpoint): Promise<void> {
         return this._ipcCall('removeCrawlerCheckpoint', checkpoint);
     }
 
-    async loadFileEvents(args): Promise<[EventAndProfile]> {
+    async loadFileEvents(args): Promise<IEventAndProfile[]> {
         return this._ipcCall('loadFileEvents', args);
     }
 
-    async loadCheckpoints(): Promise<[CrawlerCheckpoint]> {
+    async loadCheckpoints(): Promise<ICrawlerCheckpoint[]> {
         return this._ipcCall('loadCheckpoints');
     }
 
@@ -195,7 +204,7 @@ class SeshatIndexManager extends BaseEventIndexManager {
         return this._ipcCall('closeEventIndex');
     }
 
-    async getStats(): Promise<IndexStats> {
+    async getStats(): Promise<IIndexStats> {
         return this._ipcCall('getStats');
     }
 
@@ -270,6 +279,14 @@ export default class ElectronPlatform extends VectorBasePlatform {
         });
 
         // register OS-specific shortcuts
+        registerShortcut(Categories.NAVIGATION, {
+            keybinds: [{
+                modifiers: [CMD_OR_CTRL],
+                key: DIGITS,
+            }],
+            description: _td("Switch to space by number"),
+        });
+
         if (isMac) {
             registerShortcut(Categories.NAVIGATION, {
                 keybinds: [{
@@ -545,8 +562,14 @@ export default class ElectronPlatform extends VectorBasePlatform {
         });
     }
 
-    _navigateForwardBack(back: boolean) {
+    private navigateForwardBack(back: boolean) {
         this._ipcCall(back ? "navigateBack" : "navigateForward");
+    }
+    private navigateToSpace(num: number) {
+        dis.dispatch<SwitchSpacePayload>({
+            action: Action.SwitchSpace,
+            num,
+        });
     }
 
     onKeyDown(ev: KeyboardEvent): boolean {
@@ -556,7 +579,7 @@ export default class ElectronPlatform extends VectorBasePlatform {
             case Key.SQUARE_BRACKET_LEFT:
             case Key.SQUARE_BRACKET_RIGHT:
                 if (isMac && ev.metaKey && !ev.altKey && !ev.ctrlKey && !ev.shiftKey) {
-                    this._navigateForwardBack(ev.key === Key.SQUARE_BRACKET_LEFT);
+                    this.navigateForwardBack(ev.key === Key.SQUARE_BRACKET_LEFT);
                     handled = true;
                 }
                 break;
@@ -564,7 +587,23 @@ export default class ElectronPlatform extends VectorBasePlatform {
             case Key.ARROW_LEFT:
             case Key.ARROW_RIGHT:
                 if (!isMac && ev.altKey && !ev.metaKey && !ev.ctrlKey && !ev.shiftKey) {
-                    this._navigateForwardBack(ev.key === Key.ARROW_LEFT);
+                    this.navigateForwardBack(ev.key === Key.ARROW_LEFT);
+                    handled = true;
+                }
+                break;
+
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+            case "0":
+                if (SettingsStore.getValue("feature_spaces") && isOnlyCtrlOrCmdKeyEvent(ev)) {
+                    this.navigateToSpace(parseInt(ev.key, 10));
                     handled = true;
                 }
                 break;
