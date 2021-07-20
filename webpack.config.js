@@ -55,8 +55,8 @@ module.exports = (env, argv) => {
 
         entry: {
             "bundle": "./src/vector/index.ts",
-            "indexeddb-worker": "./src/vector/indexeddb-worker.js",
-            "mobileguide": "./src/vector/mobile_guide/index.js",
+            "indexeddb-worker": "./src/vector/indexeddb-worker.ts",
+            "mobileguide": "./src/vector/mobile_guide/index.ts",
             "jitsi": "./src/vector/jitsi/index.ts",
             "usercontent": "./node_modules/matrix-react-sdk/src/usercontent/index.js",
             "recorder-worklet": "./node_modules/matrix-react-sdk/src/voice/RecorderWorklet.ts",
@@ -251,7 +251,6 @@ module.exports = (env, argv) => {
                                     require("postcss-easings")(),
                                     require("postcss-strip-inline-comments")(),
                                     require("postcss-hexrgba")(),
-                                    require("postcss-calc")(),
 
                                     // It's important that this plugin is last otherwise we end
                                     // up with broken CSS.
