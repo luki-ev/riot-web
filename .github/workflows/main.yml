@@ -25,3 +25,24 @@ jobs:
         files: dist/*.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v2
+      with:
+        name: synod-web
+        path: webapp
+
+  deploy-to-staging:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+      with:
+        name: synod-web
+        path: webapp
+    - name: Setup ssh keys
+      run: |
+        mkdir ~/.ssh
+        echo '${{ secrets.SSH_PRIVATE_KEY }}' > ~/.ssh/id_rsa
+        echo '${{ secrets.SSH_PUBLIC_KEY }}' > ~/.ssh/id_rsa.pub
+        chmod 400 ~/.ssh/id_rsa
+    - name: Deploy to web.staging.synod.im
+      run: rsync -e "ssh -o StrictHostKeyChecking=no" -arvc webapp/ lki01-synodstaging@lki01.hostsharing.net:/home/pacs/lki01/users/synodstaging/doms/staging.synod.im/subs-ssl/web
