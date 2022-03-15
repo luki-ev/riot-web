@@ -35,6 +35,9 @@ For a good example, see https://develop.element.io/config.json.
      users to the SSO to log in if the user lands on the welcome page or no specific page. For example,
      https://app.element.io/#/welcome and https://app.element.io would redirect if set up to use this option.
      This can be useful to maintain guest experience until an account is needed.
+1. `logout_redirect_url`: After Element has cleared the user's storage, the user will be redirected to this URL.
+   Typically most useful in environments where the account users will be logging into is managed for them, such
+   as in cases of some SSO deployments. For example: this page might log the user out of the SSO system too.
 1. `features`: Lookup of optional features that may be force-enabled (`true`) or force-disabled (`false`).
    When features are not listed here, their defaults will be used, and users can turn them on/off if `showLabsSettings`
    allows them to. The available optional experimental features vary from release to release and are
@@ -123,7 +126,12 @@ For a good example, see https://develop.element.io/config.json.
   `/.well-known/matrix/client` in its well-known location, and the JSON file
   at that location has a key `m.vector.riot.jitsi`. In this case, the
   configuration found in the well-known location is used instead.
-
+1. `jitsiWidget`: Options to change the built-in Jitsi widget behaviour. `jitsi` controls
+   how the widget gets created, but not how it behaves.
+    1. `skipBuiltInWelcomeScreen`: If you'd like to skip the default "Join Conference"
+       behaviour, set this to `true`. This will cause the widget to assume that there's
+       a Jitsi welcome screen set up and point the user towards that. Note that this can
+       cause the camera/microphone to flicker as "in use" while Jitsi tests the devices.
 1. `enable_presence_by_hs_url`: The property key should be the URL of the homeserver
     and its value defines whether to enable/disable the presence status display
     from that homeserver. If no options are configured, presence is shown for all
@@ -182,6 +190,9 @@ For a good example, see https://develop.element.io/config.json.
    when explaining to the user where data is being sent. If not set, defaults to `brand`.
 1. `defaultDeviceDisplayName`: The default device display name to use for new logins
    and registrations. If not set then a calculated version will be used.
+1. `custom_translations_url`: An optional URL to allow overriding of translatable strings.
+   The JSON file must be in a format of `{"affected string": {"languageCode": "new string"}}`.
+   See https://github.com/matrix-org/matrix-react-sdk/pull/7886 for details.
 
 Note that `index.html` also has an og:image meta tag that is set to an image
 hosted on riot.im. This is the image used if links to your copy of Element
