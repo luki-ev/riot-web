@@ -19,6 +19,7 @@ const INCLUDE_LANGS = [
 // common parents. Hence, "res/{a,b}/**": the output will be "dest/a/..." and
 // "dest/b/...".
 const COPY_LIST = [
+    ["res/apple-app-site-association", "webapp"],
     ["res/manifest.json", "webapp"],
     ["res/sw.js", "webapp"],
     ["res/welcome.html", "webapp"],
