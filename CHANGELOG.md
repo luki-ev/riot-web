@@ -1,3 +1,60 @@
+Changes in [1.11.70](https://github.com/element-hq/element-web/releases/tag/v1.11.70) (2024-07-08)
+==================================================================================================
+## ✨ Features
+
+* Add SSO redirect option for login page ([#27576](https://github.com/element-hq/element-web/pull/27576)). Contributed by @bartvdbraak.
+* Use stable endpoints for MSC3916 ([#27558](https://github.com/element-hq/element-web/pull/27558)). Contributed by @turt2live.
+* Switch to Rust crypto stack for all logins ([#12630](https://github.com/matrix-org/matrix-react-sdk/pull/12630)). Contributed by @richvdh.
+* Hide voip buttons in group rooms in environments with widgets disabled ([#12664](https://github.com/matrix-org/matrix-react-sdk/pull/12664)). Contributed by @t3chguy.
+* Minor tweaks to UserSettings dialog ([#12651](https://github.com/matrix-org/matrix-react-sdk/pull/12651)). Contributed by @florianduros.
+* Hide voice call button when redundant ([#12639](https://github.com/matrix-org/matrix-react-sdk/pull/12639)). Contributed by @t3chguy.
+* Improve accessibility of the room summary card ([#12586](https://github.com/matrix-org/matrix-react-sdk/pull/12586)). Contributed by @t3chguy.
+* Show tooltips on narrow tabbed views ([#12624](https://github.com/matrix-org/matrix-react-sdk/pull/12624)). Contributed by @dbkr.
+* Update gfm.css to github-markdown-css ([#12613](https://github.com/matrix-org/matrix-react-sdk/pull/12613)). Contributed by @t3chguy.
+* Cache e2eStatus to avoid concerning unencrypted flicker when changing rooms ([#12606](https://github.com/matrix-org/matrix-react-sdk/pull/12606)). Contributed by @t3chguy.
+* Tweak copy for user verification toast ([#12605](https://github.com/matrix-org/matrix-react-sdk/pull/12605)). Contributed by @t3chguy.
+* Support s tags for strikethrough for Matrix v1.10 ([#12604](https://github.com/matrix-org/matrix-react-sdk/pull/12604)). Contributed by @t3chguy.
+
+## 🐛 Bug Fixes
+
+* Fix "Unable to restore session" error ([#4299](https://github.com/matrix-org/matrix-js-sdk/pull/4299)).
+* Fix error when sending encrypted messages in large rooms ([#4297](https://github.com/matrix-org/matrix-js-sdk/pull/4297)).
+* Remove redundant copy in deactive uia modal ([#12668](https://github.com/matrix-org/matrix-react-sdk/pull/12668)). Contributed by @t3chguy.
+* Fix high contrast theme in settings ([#12649](https://github.com/matrix-org/matrix-react-sdk/pull/12649)). Contributed by @florianduros.
+* Fix background on live location sharing footer ([#12629](https://github.com/matrix-org/matrix-react-sdk/pull/12629)). Contributed by @t3chguy.
+* Remove outdated iframe sandbox attribute ([#12633](https://github.com/matrix-org/matrix-react-sdk/pull/12633)). Contributed by @t3chguy.
+* Remove stray setState which caused encryption state shields to flicker ([#12632](https://github.com/matrix-org/matrix-react-sdk/pull/12632)). Contributed by @t3chguy.
+* Fix stray background colour on markdown body ([#12628](https://github.com/matrix-org/matrix-react-sdk/pull/12628)). Contributed by @t3chguy.
+* Fix widgets not being cleaned up correctly. ([#12616](https://github.com/matrix-org/matrix-react-sdk/pull/12616)). Contributed by @toger5.
+* Add in-progress view to display name EditInPlace ([#12609](https://github.com/matrix-org/matrix-react-sdk/pull/12609)). Contributed by @dbkr.
+* Fix config override of other settings levels ([#12593](https://github.com/matrix-org/matrix-react-sdk/pull/12593)). Contributed by @langleyd.
+* Don't show 'saved' on display name save error ([#12600](https://github.com/matrix-org/matrix-react-sdk/pull/12600)). Contributed by @dbkr.
+
+
+
+Changes in [1.11.69](https://github.com/element-hq/element-web/releases/tag/v1.11.69) (2024-06-18)
+==================================================================================================
+## ✨ Features
+
+* Change avatar setting component to use a menu ([#12585](https://github.com/matrix-org/matrix-react-sdk/pull/12585)). Contributed by @dbkr.
+* New user profile UI in User Settings ([#12548](https://github.com/matrix-org/matrix-react-sdk/pull/12548)). Contributed by @dbkr.
+* MSC4108 support OIDC QR code login ([#12370](https://github.com/matrix-org/matrix-react-sdk/pull/12370)). Contributed by @t3chguy.
+
+## 🐛 Bug Fixes
+
+* Fix image upload preview size ([#12612](https://github.com/matrix-org/matrix-react-sdk/pull/12612)). Contributed by @RiotRobot.
+* Fix screen sharing in recent Chrome (https://github.com/matrix-org/matrix-js-sdk/pull/4243).
+* Fix roving tab index crash `compareDocumentPosition` ([#12594](https://github.com/matrix-org/matrix-react-sdk/pull/12594)). Contributed by @t3chguy.
+* Keep dialog glass border on narrow screens ([#12591](https://github.com/matrix-org/matrix-react-sdk/pull/12591)). Contributed by @dbkr.
+* Add missing a11y label to dismiss onboarding button in room list ([#12587](https://github.com/matrix-org/matrix-react-sdk/pull/12587)). Contributed by @t3chguy.
+* Add hover / active state on avatar setting upload button ([#12590](https://github.com/matrix-org/matrix-react-sdk/pull/12590)). Contributed by @dbkr.
+* Fix EditInPlace button styles ([#12589](https://github.com/matrix-org/matrix-react-sdk/pull/12589)). Contributed by @dbkr.
+* Fix incorrect assumptions about required fields in /search response ([#12575](https://github.com/matrix-org/matrix-react-sdk/pull/12575)). Contributed by @t3chguy.
+* Fix display of no avatar in avatar setting controls ([#12558](https://github.com/matrix-org/matrix-react-sdk/pull/12558)). Contributed by @dbkr.
+* Element-R: pass pickleKey in as raw key for indexeddb encryption ([#12543](https://github.com/matrix-org/matrix-react-sdk/pull/12543)). Contributed by @richvdh.
+
+
+
 Changes in [1.11.68](https://github.com/element-hq/element-web/releases/tag/v1.11.68) (2024-06-04)
 ==================================================================================================
 ## ✨ Features
