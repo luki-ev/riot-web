@@ -22,7 +22,7 @@ import AccessibleButton from "../../../elements/AccessibleButton";
 import Field from "../../../elements/Field";
 import SettingsTab from "../SettingsTab";
 import { SettingsSection } from "../../shared/SettingsSection";
-import SettingsSubsection, { SettingsSubsectionText } from "../../shared/SettingsSubsection";
+import { SettingsSubsection, SettingsSubsectionText } from "../../shared/SettingsSubsection";
 
 interface IState {
     busy: boolean;
@@ -268,7 +268,6 @@ export default class MjolnirUserSettingsTab extends React.Component<{}, IState> 
                                 onChange={this.onPersonalRuleChanged}
                             />
                             <AccessibleButton
-                                type="submit"
                                 kind="primary"
                                 onClick={this.onAddPersonalRule}
                                 disabled={this.state.busy}
@@ -295,12 +294,7 @@ export default class MjolnirUserSettingsTab extends React.Component<{}, IState> 
                                 value={this.state.newList}
                                 onChange={this.onNewListChanged}
                             />
-                            <AccessibleButton
-                                type="submit"
-                                kind="primary"
-                                onClick={this.onSubscribeList}
-                                disabled={this.state.busy}
-                            >
+                            <AccessibleButton kind="primary" onClick={this.onSubscribeList} disabled={this.state.busy}>
                                 {_t("action|subscribe")}
                             </AccessibleButton>
                         </form>

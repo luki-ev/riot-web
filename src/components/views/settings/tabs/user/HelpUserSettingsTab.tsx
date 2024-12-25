@@ -19,7 +19,7 @@ import BugReportDialog from "../../../dialogs/BugReportDialog";
 import CopyableText from "../../../elements/CopyableText";
 import SettingsTab from "../SettingsTab";
 import { SettingsSection } from "../../shared/SettingsSection";
-import SettingsSubsection, { SettingsSubsectionText } from "../../shared/SettingsSubsection";
+import { SettingsSubsection, SettingsSubsectionText } from "../../shared/SettingsSubsection";
 import ExternalLink from "../../../elements/ExternalLink";
 import MatrixClientContext from "../../../../../contexts/MatrixClientContext";
 
@@ -32,7 +32,7 @@ interface IState {
 
 export default class HelpUserSettingsTab extends React.Component<IProps, IState> {
     public static contextType = MatrixClientContext;
-    public declare context: React.ContextType<typeof MatrixClientContext>;
+    declare public context: React.ContextType<typeof MatrixClientContext>;
 
     public constructor(props: IProps, context: React.ContextType<typeof MatrixClientContext>) {
         super(props, context);

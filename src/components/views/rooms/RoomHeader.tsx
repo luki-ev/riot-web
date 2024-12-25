@@ -6,7 +6,7 @@ SPDX-License-Identifier: AGPL-3.0-only OR GPL-3.0-only
 Please see LICENSE files in the repository root for full details.
 */
 
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Body as BodyText, Button, IconButton, Menu, MenuItem, Tooltip } from "@vector-im/compound-web";
 import VideoCallIcon from "@vector-im/compound-design-tokens/assets/web/icons/video-call-solid";
 import VoiceCallIcon from "@vector-im/compound-design-tokens/assets/web/icons/voice-call";
@@ -27,7 +27,7 @@ import { useRoomMemberCount, useRoomMembers } from "../../../hooks/useRoomMember
 import { _t } from "../../../languageHandler";
 import { Flex } from "../../utils/Flex";
 import { Box } from "../../utils/Box";
-import { getPlatformCallTypeChildren, getPlatformCallTypeLabel, useRoomCall } from "../../../hooks/room/useRoomCall";
+import { getPlatformCallTypeProps, useRoomCall } from "../../../hooks/room/useRoomCall";
 import { useRoomThreadNotifications } from "../../../hooks/room/useRoomThreadNotifications";
 import { useGlobalNotificationState } from "../../../hooks/useGlobalNotificationState";
 import SdkConfig from "../../../SdkConfig";
@@ -48,10 +48,10 @@ import { CallGuestLinkButton } from "./RoomHeader/CallGuestLinkButton";
 import { ButtonEvent } from "../elements/AccessibleButton";
 import WithPresenceIndicator, { useDmMember } from "../avatars/WithPresenceIndicator";
 import { IOOBData } from "../../../stores/ThreepidInviteStore";
-import RoomContext from "../../../contexts/RoomContext";
 import { MainSplitContentType } from "../../structures/RoomView";
 import defaultDispatcher from "../../../dispatcher/dispatcher.ts";
 import { RoomSettingsTab } from "../dialogs/RoomSettingsDialog.tsx";
+import { useScopedRoomContext } from "../../../contexts/ScopedRoomContext.tsx";
 
 export default function RoomHeader({
     room,
@@ -167,18 +167,21 @@ export default function RoomHeader({
                     side="left"
                     align="start"
                 >
-                    {callOptions.map((option) => (
-                        <MenuItem
-                            key={option}
-                            label={getPlatformCallTypeLabel(option)}
-                            aria-label={getPlatformCallTypeLabel(option)}
-                            children={getPlatformCallTypeChildren(option)}
-                            className="mx_RoomHeader_videoCallOption"
-                            onClick={(ev) => videoCallClick(ev, option)}
-                            Icon={VideoCallIcon}
-                            onSelect={() => {} /* Dummy handler since we want the click event.*/}
-                        />
-                    ))}
+                    {callOptions.map((option) => {
+                        const { label, children } = getPlatformCallTypeProps(option);
+                        return (
+                            <MenuItem
+                                key={option}
+                                label={label}
+                                aria-label={label}
+                                children={children}
+                                className="mx_RoomHeader_videoCallOption"
+                                onClick={(ev) => videoCallClick(ev, option)}
+                                Icon={VideoCallIcon}
+                                onSelect={() => {} /* Dummy handler since we want the click event.*/}
+                            />
+                        );
+                    })}
                 </Menu>
             ) : (
                 <IconButton
@@ -226,7 +229,7 @@ export default function RoomHeader({
         voiceCallButton = undefined;
     }
 
-    const roomContext = useContext(RoomContext);
+    const roomContext = useScopedRoomContext("mainSplitContentType");
     const isVideoRoom = calcIsVideoRoom(room);
     const showChatButton =
         isVideoRoom ||
@@ -389,7 +392,7 @@ export default function RoomHeader({
                             viewUserOnClick={false}
                             tooltipLabel={_t("room|header_face_pile_tooltip")}
                             onClick={(e: ButtonEvent) => {
-                                RightPanelStore.instance.showOrHidePhase(RightPanelPhases.RoomMemberList);
+                                RightPanelStore.instance.showOrHidePhase(RightPanelPhases.MemberList);
                                 e.stopPropagation();
                             }}
                             aria-label={_t("common|n_members", { count: memberCount })}

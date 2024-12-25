@@ -39,6 +39,7 @@ jest.mock("matrix-js-sdk/src/logger");
 jest.mock("../../src/dispatcher/dispatcher", () => ({
     dispatch: jest.fn(),
     register: jest.fn(),
+    unregister: jest.fn(),
 }));
 
 jest.mock("../../src/SecurityManager", () => ({
@@ -94,17 +95,17 @@ describe("DeviceListener", () => {
                 },
             }),
             getSessionBackupPrivateKey: jest.fn(),
+            isEncryptionEnabledInRoom: jest.fn(),
+            getKeyBackupInfo: jest.fn().mockResolvedValue(null),
         } as unknown as Mocked<CryptoApi>;
         mockClient = getMockClientWithEventEmitter({
             isGuest: jest.fn(),
             getUserId: jest.fn().mockReturnValue(userId),
             getSafeUserId: jest.fn().mockReturnValue(userId),
-            getKeyBackupVersion: jest.fn().mockResolvedValue(undefined),
             getRooms: jest.fn().mockReturnValue([]),
             isVersionSupported: jest.fn().mockResolvedValue(true),
             isInitialSyncComplete: jest.fn().mockReturnValue(true),
             waitForClientWellKnown: jest.fn(),
-            isRoomEncrypted: jest.fn(),
             getClientWellKnown: jest.fn(),
             getDeviceId: jest.fn().mockReturnValue(deviceId),
             setAccountData: jest.fn(),
@@ -291,7 +292,7 @@ describe("DeviceListener", () => {
                 mockCrypto!.isCrossSigningReady.mockResolvedValue(false);
                 mockCrypto!.isSecretStorageReady.mockResolvedValue(false);
                 mockClient!.getRooms.mockReturnValue(rooms);
-                mockClient!.isRoomEncrypted.mockReturnValue(true);
+                jest.spyOn(mockClient.getCrypto()!, "isEncryptionEnabledInRoom").mockResolvedValue(true);
             });
 
             it("hides setup encryption toast when cross signing and secret storage are ready", async () => {
@@ -316,7 +317,7 @@ describe("DeviceListener", () => {
             });
 
             it("does not show any toasts when no rooms are encrypted", async () => {
-                mockClient!.isRoomEncrypted.mockReturnValue(false);
+                jest.spyOn(mockClient.getCrypto()!, "isEncryptionEnabledInRoom").mockResolvedValue(false);
                 await createAndStart();
 
                 expect(SetupEncryptionToast.showToast).not.toHaveBeenCalled();
@@ -353,7 +354,7 @@ describe("DeviceListener", () => {
 
                 it("shows set up encryption toast when user has a key backup available", async () => {
                     // non falsy response
-                    mockClient!.getKeyBackupVersion.mockResolvedValue({} as unknown as KeyBackupInfo);
+                    mockCrypto.getKeyBackupInfo.mockResolvedValue({} as unknown as KeyBackupInfo);
                     await createAndStart();
 
                     expect(SetupEncryptionToast.showToast).toHaveBeenCalledWith(
@@ -672,7 +673,7 @@ describe("DeviceListener", () => {
                 describe("When Room Key Backup is not enabled", () => {
                     beforeEach(() => {
                         // no backup
-                        mockClient.getKeyBackupVersion.mockResolvedValue(null);
+                        mockCrypto.getKeyBackupInfo.mockResolvedValue(null);
                     });
 
                     it("Should report recovery state as Enabled", async () => {
@@ -721,7 +722,7 @@ describe("DeviceListener", () => {
                         });
 
                         // no backup
-                        mockClient.getKeyBackupVersion.mockResolvedValue(null);
+                        mockCrypto.getKeyBackupInfo.mockResolvedValue(null);
 
                         await createAndStart();
 
@@ -871,7 +872,7 @@ describe("DeviceListener", () => {
                 describe("When Room Key Backup is enabled", () => {
                     beforeEach(() => {
                         // backup enabled - just need a mock object
-                        mockClient.getKeyBackupVersion.mockResolvedValue({} as KeyBackupInfo);
+                        mockCrypto.getKeyBackupInfo.mockResolvedValue({} as KeyBackupInfo);
                     });
 
                     const testCases = [

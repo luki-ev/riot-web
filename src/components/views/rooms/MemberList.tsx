@@ -72,18 +72,16 @@ interface IState {
 
 export default class MemberList extends React.Component<IProps, IState> {
     private readonly showPresence: boolean;
-    private mounted = false;
+    private unmounted = false;
 
     public static contextType = SDKContext;
-    public declare context: React.ContextType<typeof SDKContext>;
+    declare public context: React.ContextType<typeof SDKContext>;
     private tiles: Map<string, MemberTile> = new Map();
 
     public constructor(props: IProps, context: React.ContextType<typeof SDKContext>) {
         super(props, context);
         this.state = this.getMembersState([], []);
         this.showPresence = context?.memberListStore.isPresenceEnabled() ?? true;
-        this.mounted = true;
-        this.listenForMembersChanges();
     }
 
     private listenForMembersChanges(): void {
@@ -102,11 +100,13 @@ export default class MemberList extends React.Component<IProps, IState> {
     }
 
     public componentDidMount(): void {
+        this.unmounted = false;
+        this.listenForMembersChanges();
         this.updateListNow(true);
     }
 
     public componentWillUnmount(): void {
-        this.mounted = false;
+        this.unmounted = true;
         const cli = MatrixClientPeg.get();
         if (cli) {
             cli.removeListener(RoomStateEvent.Update, this.onRoomStateUpdate);
@@ -205,7 +205,7 @@ export default class MemberList extends React.Component<IProps, IState> {
 
     // XXX: exported for tests
     public async updateListNow(showLoadingSpinner?: boolean): Promise<void> {
-        if (!this.mounted) {
+        if (this.unmounted) {
             return;
         }
         if (showLoadingSpinner) {
@@ -215,7 +215,7 @@ export default class MemberList extends React.Component<IProps, IState> {
             this.props.roomId,
             this.props.searchQuery,
         );
-        if (!this.mounted) {
+        if (this.unmounted) {
             return;
         }
         this.setState({

@@ -51,6 +51,7 @@ import { ComposerInsertPayload, ComposerType } from "../../dispatcher/payloads/C
 import Heading from "../views/typography/Heading";
 import { SdkContextClass } from "../../contexts/SDKContext";
 import { ThreadPayload } from "../../dispatcher/payloads/ThreadPayload";
+import { ScopedRoomContextProvider } from "../../contexts/ScopedRoomContext.tsx";
 
 interface IProps {
     room: Room;
@@ -75,10 +76,10 @@ interface IState {
 
 export default class ThreadView extends React.Component<IProps, IState> {
     public static contextType = RoomContext;
-    public declare context: React.ContextType<typeof RoomContext>;
+    declare public context: React.ContextType<typeof RoomContext>;
 
-    private dispatcherRef: string | null = null;
-    private readonly layoutWatcherRef: string;
+    private dispatcherRef?: string;
+    private layoutWatcherRef?: string;
     private timelinePanel = createRef<TimelinePanel>();
     private card = createRef<HTMLDivElement>();
 
@@ -91,7 +92,6 @@ export default class ThreadView extends React.Component<IProps, IState> {
         this.setEventId(this.props.mxEvent);
         const thread = this.props.room.getThread(this.eventId) ?? undefined;
 
-        this.setupThreadListeners(thread);
         this.state = {
             layout: SettingsStore.getValue("layout"),
             narrow: false,
@@ -100,13 +100,15 @@ export default class ThreadView extends React.Component<IProps, IState> {
                 return ev.isRelation(THREAD_RELATION_TYPE.name) && !ev.status;
             }),
         };
+    }
+
+    public componentDidMount(): void {
+        this.setupThreadListeners(this.state.thread);
 
         this.layoutWatcherRef = SettingsStore.watchSetting("layout", null, (...[, , , value]) =>
             this.setState({ layout: value as Layout }),
         );
-    }
 
-    public componentDidMount(): void {
         if (this.state.thread) {
             this.postThreadUpdate(this.state.thread);
         }
@@ -118,7 +120,7 @@ export default class ThreadView extends React.Component<IProps, IState> {
     }
 
     public componentWillUnmount(): void {
-        if (this.dispatcherRef) dis.unregister(this.dispatcherRef);
+        dis.unregister(this.dispatcherRef);
         const roomId = this.props.mxEvent.getRoomId();
         SettingsStore.unwatchSetting(this.layoutWatcherRef);
 
@@ -421,14 +423,12 @@ export default class ThreadView extends React.Component<IProps, IState> {
         }
 
         return (
-            <RoomContext.Provider
-                value={{
-                    ...this.context,
-                    timelineRenderingType: TimelineRenderingType.Thread,
-                    threadId: this.state.thread?.id,
-                    liveTimeline: this.state?.thread?.timelineSet?.getLiveTimeline(),
-                    narrow: this.state.narrow,
-                }}
+            <ScopedRoomContextProvider
+                {...this.context}
+                timelineRenderingType={TimelineRenderingType.Thread}
+                threadId={this.state.thread?.id}
+                liveTimeline={this.state?.thread?.timelineSet?.getLiveTimeline()}
+                narrow={this.state.narrow}
             >
                 <BaseCard
                     className={classNames("mx_ThreadView mx_ThreadPanel", {
@@ -462,7 +462,7 @@ export default class ThreadView extends React.Component<IProps, IState> {
                         />
                     )}
                 </BaseCard>
-            </RoomContext.Provider>
+            </ScopedRoomContextProvider>
         );
     }
 }

@@ -28,6 +28,7 @@ import { logger } from "matrix-js-sdk/src/logger";
 import { CallErrorCode } from "matrix-js-sdk/src/webrtc/call";
 import {
     CryptoEvent,
+    DecryptionFailureCode,
     EventShieldColour,
     EventShieldReason,
     UserVerificationStatus,
@@ -60,7 +61,6 @@ import { IReadReceiptPosition } from "./ReadReceiptMarker";
 import MessageActionBar from "../messages/MessageActionBar";
 import ReactionsRow from "../messages/ReactionsRow";
 import { getEventDisplayInfo } from "../../../utils/EventRenderingUtils";
-import { MessagePreviewStore } from "../../../stores/room-list/MessagePreviewStore";
 import RoomContext, { TimelineRenderingType } from "../../../contexts/RoomContext";
 import { MediaEventHelper } from "../../../utils/MediaEventHelper";
 import { ButtonEvent } from "../elements/AccessibleButton";
@@ -82,6 +82,7 @@ import { EventTileThreadToolbar } from "./EventTile/EventTileThreadToolbar";
 import { getLateEventInfo } from "../../structures/grouper/LateEventGrouper";
 import PinningUtils from "../../../utils/PinningUtils";
 import { PinnedMessageBadge } from "../messages/PinnedMessageBadge";
+import { EventPreview } from "./EventPreview";
 
 export type GetRelationsForEvent = (
     eventId: string,
@@ -295,7 +296,7 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
     };
 
     public static contextType = RoomContext;
-    public declare context: React.ContextType<typeof RoomContext>;
+    declare public context: React.ContextType<typeof RoomContext>;
 
     private unmounted = false;
 
@@ -386,6 +387,7 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
     }
 
     public componentDidMount(): void {
+        this.unmounted = false;
         this.suppressReadReceiptAnimation = false;
         const client = MatrixClientPeg.safeGet();
         if (!this.props.forExport) {
@@ -718,7 +720,14 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
 
         // event could not be decrypted
         if (ev.isDecryptionFailure()) {
-            return <E2ePadlockDecryptionFailure />;
+            switch (ev.decryptionFailureReason) {
+                // These two errors get icons from DecryptionFailureBody, so we hide the padlock icon
+                case DecryptionFailureCode.SENDER_IDENTITY_PREVIOUSLY_VERIFIED:
+                case DecryptionFailureCode.UNSIGNED_SENDER_DEVICE:
+                    return null;
+                default:
+                    return <E2ePadlockDecryptionFailure />;
+            }
         }
 
         if (this.state.shieldColour !== EventShieldColour.NONE) {
@@ -748,6 +757,14 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
                 case EventShieldReason.MISMATCHED_SENDER_KEY:
                     shieldReasonMessage = _t("encryption|event_shield_reason_mismatched_sender_key");
                     break;
+
+                case EventShieldReason.SENT_IN_CLEAR:
+                    shieldReasonMessage = _t("common|unencrypted");
+                    break;
+
+                case EventShieldReason.VERIFICATION_VIOLATION:
+                    shieldReasonMessage = _t("timeline|decryption_failure|sender_identity_previously_verified");
+                    break;
             }
 
             if (this.state.shieldColour === EventShieldColour.GREY) {
@@ -758,7 +775,7 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
             }
         }
 
-        if (MatrixClientPeg.safeGet().isRoomEncrypted(ev.getRoomId()!)) {
+        if (this.context.isRoomEncrypted) {
             // else if room is encrypted
             // and event is being encrypted or is not_sent (Unknown Devices/Network Error)
             if (ev.status === EventStatus.ENCRYPTING) {
@@ -1332,7 +1349,7 @@ export class UnwrappedEventTile extends React.Component<EventTileProps, IState> 
                                 ) : this.props.mxEvent.isDecryptionFailure() ? (
                                     <DecryptionFailureBody mxEvent={this.props.mxEvent} />
                                 ) : (
-                                    MessagePreviewStore.instance.generatePreviewForEvent(this.props.mxEvent)
+                                    <EventPreview mxEvent={this.props.mxEvent} />
                                 )}
                             </div>
                             {this.renderThreadPanelSummary()}

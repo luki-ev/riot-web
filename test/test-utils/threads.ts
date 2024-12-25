@@ -84,7 +84,7 @@ export const makeThreadEvents = ({
     rootEvent.setUnsigned({
         "m.relations": {
             [RelationType.Thread]: {
-                latest_event: events[events.length - 1],
+                latest_event: events[events.length - 1].event,
                 count: length,
                 current_user_participated: [...participantUserIds, authorId].includes(currentUserId!),
             },
@@ -157,6 +157,6 @@ export const populateThread = async ({
     // that it is already loaded, and send the events again to the room
     // so they are added to the thread timeline.
     ret.thread.initialEventsFetched = true;
-    await room.addLiveEvents(ret.events);
+    await room.addLiveEvents(ret.events, { addToState: false });
     return ret;
 };

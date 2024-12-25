@@ -101,7 +101,7 @@ export default class SetIdServer extends React.Component<IProps, IState> {
     }
 
     public componentWillUnmount(): void {
-        if (this.dispatcherRef) dis.unregister(this.dispatcherRef);
+        dis.unregister(this.dispatcherRef);
     }
 
     private onAction = (payload: ActionPayload): void => {
@@ -407,7 +407,6 @@ export default class SetIdServer extends React.Component<IProps, IState> {
                         forceValidity={this.state.error ? false : undefined}
                     />
                     <AccessibleButton
-                        type="submit"
                         kind="primary_sm"
                         onClick={this.checkIdServer}
                         disabled={!this.idServerChangeEnabled()}

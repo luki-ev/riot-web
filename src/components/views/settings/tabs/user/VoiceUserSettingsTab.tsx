@@ -21,7 +21,7 @@ import LabelledToggleSwitch from "../../../elements/LabelledToggleSwitch";
 import { requestMediaPermissions } from "../../../../../utils/media/requestMediaPermissions";
 import SettingsTab from "../SettingsTab";
 import { SettingsSection } from "../../shared/SettingsSection";
-import SettingsSubsection from "../../shared/SettingsSubsection";
+import { SettingsSubsection } from "../../shared/SettingsSubsection";
 import MatrixClientContext from "../../../../../contexts/MatrixClientContext";
 
 interface IState {
@@ -51,7 +51,7 @@ const mapDeviceKindToHandlerValue = (deviceKind: MediaDeviceKindEnum): string | 
 
 export default class VoiceUserSettingsTab extends React.Component<{}, IState> {
     public static contextType = MatrixClientContext;
-    public declare context: React.ContextType<typeof MatrixClientContext>;
+    declare public context: React.ContextType<typeof MatrixClientContext>;
 
     public constructor(props: {}, context: React.ContextType<typeof MatrixClientContext>) {
         super(props, context);
